@@ -1,7 +1,7 @@
 import React from "react";
 import bgPattern from "/public/images/coolPattern.jpg";
 
-export const Contact = () => {
+export default function Contact() {
   return (
     <div className="w-fit h-fit flex flex-col items-center">
       <h1 className="self-start pl-5 text-2xl">Get in touch!</h1>
@@ -56,4 +56,4 @@ export const Contact = () => {
       </form>
     </div>
   );
-};
+}

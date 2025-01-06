@@ -1,6 +1,6 @@
 "use client";
+import Contact from "./contact/page";
 import { useTypeHook } from "./typeHook";
-import { Contact } from "./contact/page";
 
 export default function Home() {
   const { text, showCursor } = useTypeHook(
