@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function typeHook(strings: string[], typingSpeed: number) {
+export function useTypeHook(strings: string[], typingSpeed: number) {
   const [text, setText] = useState("");
   const [index, setIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);

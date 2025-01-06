@@ -1,9 +1,9 @@
 "use client";
-import { typeHook } from "./typeHook";
+import { useTypeHook } from "./typeHook";
 import { Contact } from "./contact/page";
 
 export default function Home() {
-  const { text, showCursor } = typeHook(
+  const { text, showCursor } = useTypeHook(
     [
       "Based on Argentina!!",
       "Let's create something amazing together!",
