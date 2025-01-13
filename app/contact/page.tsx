@@ -61,13 +61,13 @@ export default function Contact() {
       [name]: value,
     }));
 
-    // Validar cada campo al escribir
+    // Validacion cada campo
     setIsValid((prev) => ({
       ...prev,
       [name]:
         name === "email"
-          ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) // Validación de email
-          : value.trim().length > 0, // Campos no vacíos
+          ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) // Validación mail
+          : value.trim().length > 0,
     }));
   };
 
@@ -93,12 +93,12 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Verificar si todos los campos son válidos antes de enviar el formulario
+    // Verifica si todos los campos son válidos antes de enviar el formulario
     if (!Object.values(isValid).every(Boolean)) {
       return;
     }
 
-    // Configurar los datos que se enviarán
+    // Configura los datos que se enviarán
     const templateParams = {
       name: formData.name,
       email: formData.email,
@@ -107,16 +107,16 @@ export default function Contact() {
     };
 
     try {
-      // Enviar el correo a través de EmailJS
+      // Envio a través de EmailJS
       const response = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string, // Tu Service ID
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string, // Tu Template ID
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
         templateParams,
-        process.env.NEXT_PUBLIC_EMAILJS_USER_ID // Tu User ID
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
       );
 
       if (response.status === 200) {
-        // Restablecer los campos y mostrar el mensaje de éxito
+        // Restablecer los campos
         setFormData({
           name: "",
           email: "",
@@ -137,7 +137,6 @@ export default function Contact() {
         });
         setIsMessageSent(true);
 
-        // Activar la animación de desvanecimiento después de 3 segundos
         setTimeout(() => {
           setFadeOut(true);
         }, 3000);
@@ -161,28 +160,28 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-fit h-fit flex flex-col items-center">
+    <div className="w-full h-auto flex flex-col items-center relative">
       <h1 className="self-start pl-5 text-2xl">Get in touch!</h1>
       <form
         onSubmit={handleSubmit}
         method="post"
         className="flex flex-col items-center justify-center py-4 border-4 border-iviSecondary rounded-3xl
-        h-[350px] w-[800px] bg-iviExtra shadow-lg shadow-iviShadow"
+        w-full h-auto max-w-[1200px] sm:h-auto bg-iviExtra shadow-lg"
         style={{
           backgroundImage: `url(${bgPattern.src})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="w-full h-full flex justify-around items-center mt-6">
-          <div className="flex flex-col justify-between h-full">
+        <div className="w-full h-full flex flex-col sm:flex-row justify-around items-center mt-6 p-4 sm:space-x-4">
+          <div className="flex flex-col justify-between w-full max-w-96 h-full flex-1 flex-grow space-y-5 sm:space-y-7">
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`border-2 rounded-lg h-10 p-2 ${getBorderColor(
+              className={`border-2 rounded-lg h-10 p-2 sm:h-12 ${getBorderColor(
                 "name"
               )}`}
               placeholder="Name"
@@ -194,7 +193,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`border-2 rounded-lg h-10 p-2 ${getBorderColor(
+              className={`border-2 rounded-lg h-10 p-2 sm:h-12 ${getBorderColor(
                 "email"
               )}`}
               placeholder="Email"
@@ -206,7 +205,7 @@ export default function Contact() {
               value={formData.subject}
               onChange={handleChange}
               onBlur={handleBlur}
-              className={`border-2 rounded-lg h-10 p-2 ${getBorderColor(
+              className={`border-2 rounded-lg h-10 p-2 sm:h-12 ${getBorderColor(
                 "subject"
               )}`}
               placeholder="Subject"
@@ -218,7 +217,7 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`border-2 rounded-lg h-full w-96 p-2 resize-none ${getBorderColor(
+            className={`flex-grow border-2 rounded-lg min-h-[200px] sm:h-full w-full max-w-96 lg:max-w-[450px] p-2 mt-2 sm:mt-0 resize-none ${getBorderColor(
               "message"
             )}`}
             placeholder="Message..."
@@ -237,7 +236,8 @@ export default function Contact() {
       {/* Mail enviado! */}
       {isMessageSent && (
         <div
-          className={`message-card flex w-[650px] h-[300px] border-4 border-iviPrimary rounded-2xl absolute ${
+          className={`message-card flex-grow w-full h-auto min-w-[300px] max-w-[550px] min-h-[200px] 
+          border-4 border-iviPrimary rounded-2xl absolute p-4 top-[92px] ${
             fadeOut
               ? "opacity-0 transition-opacity duration-1000"
               : "opacity-100"
@@ -248,11 +248,17 @@ export default function Contact() {
             backgroundPosition: "center",
           }}
         >
-          <h2 className="text-4xl font-medium p-12">Email sent, thanks!</h2>
-          <MdClose
-            className="w-10 h-10 ml-[180px] mt-1 cursor-pointer"
-            onClick={handleClose}
-          />
+          <div className="flex justify-between">
+            <h2 className="text-4xl font-semibold p-4">
+              Email sent,
+              <br />
+              thanks!
+            </h2>
+            <MdClose
+              className="w-10 h-10 cursor-pointer"
+              onClick={handleClose}
+            />
+          </div>
         </div>
       )}
     </div>

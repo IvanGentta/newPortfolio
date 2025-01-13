@@ -1,5 +1,8 @@
 "use client";
+import About from "./about/page";
 import Contact from "./contact/page";
+import ProjectsPage from "./projectsPage/page";
+import Skills from "./skills/page";
 import { useTypeHook } from "./typeHook";
 
 export default function Home() {
@@ -15,8 +18,8 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen w-full bg-iviBackground pt-24">
-      <div className="pt-20 flex flex-col items-center">
+    <main className="w-full h-auto bg-iviBackground">
+      <div className="min-h-screen flex flex-col items-center justify-center text-center mx-1">
         <p className="flex items-center h-7 relative font-mono">
           {text}
           {showCursor && (
@@ -32,8 +35,15 @@ export default function Home() {
           portfolio
         </h1>
       </div>
-      <div className="flex justify-center">
-        <Contact />
+      <div className="flex flex-col items-center">
+        <section id="about">
+          <About />
+        </section>
+        <section id="skills">{/* <Skills /> */}</section>
+        <section id="proyects">{/* <ProjectsPage /> */}</section>
+        <section id="contact" className="w-full h-auto max-w-[1024px] p-2">
+          <Contact />
+        </section>
       </div>
     </main>
   );
