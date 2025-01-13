@@ -8,6 +8,9 @@ const font = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Iván Gentta",
   description: "Iván Gentta portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -17,9 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+      <head></head>
       <body className={font.className}>
         <Nav />
         {children}
