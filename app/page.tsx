@@ -35,13 +35,16 @@ export default function Home() {
           portfolio
         </h1>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-iviText via-transparent to-transparent opacity-50 rounded-3xl"></div>
+      <div className="flex flex-col items-center w-full">
         <section id="about">
           <About />
         </section>
-        <section id="skills">{/* <Skills /> */}</section>
+        <section id="skills">
+          <Skills />
+        </section>
         <section id="proyects">{/* <ProjectsPage /> */}</section>
-        <section id="contact" className="w-full h-auto max-w-[1024px] p-2">
+        <section id="contact" className="w-full h-auto p-2">
           <Contact />
         </section>
       </div>

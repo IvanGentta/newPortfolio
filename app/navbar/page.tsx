@@ -9,7 +9,6 @@ export default function Nav() {
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
-    console.log("Menu toggled:", !isMenuOpen); // Para verificar en consola
   };
 
   return (
@@ -17,13 +16,13 @@ export default function Nav() {
       {/* Overlay oscuro */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity md:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity md:hidden"
           onClick={() => setIsMenuOpen(false)}
         ></div>
       )}
 
       <nav
-        className="bg-iviBackground h-24 w-full p-3 fixed top-0 z-50
+        className="bg-iviBackground h-24 w-full p-3 fixed top-0 z-[100]
         border-b-2 border-iviSecondary shadow-md shadow-iviShadow"
       >
         <div className="flex justify-between w-full">

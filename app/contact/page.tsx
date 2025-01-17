@@ -236,7 +236,7 @@ export default function Contact() {
       {/* Mail enviado! */}
       {isMessageSent && (
         <div
-          className={`message-card flex-grow w-full h-auto min-w-[300px] max-w-[550px] min-h-[200px] 
+          className={`message-card flex-grow w-full h-auto min-w-[300px] max-w-[550px] min-h-[200px]
           border-4 border-iviPrimary rounded-2xl absolute p-4 top-[92px] ${
             fadeOut
               ? "opacity-0 transition-opacity duration-1000"
