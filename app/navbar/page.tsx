@@ -26,12 +26,14 @@ export default function Nav() {
         border-b-2 border-iviSecondary shadow-md shadow-iviShadow"
       >
         <div className="flex justify-between w-full">
-          <Image
-            src="/images/logoWhitePng.PNG"
-            alt="Logo Gentta Iván"
-            width={70}
-            height={70}
-          />
+          <Link href="/" onClick={() => setIsMenuOpen(false)}>
+            <Image
+              src="/images/logoWhitePng.PNG"
+              alt="Logo Gentta Iván"
+              width={70}
+              height={70}
+            />
+          </Link>
 
           <div className="flex items-center">
             {/* Botón hamburguesa */}

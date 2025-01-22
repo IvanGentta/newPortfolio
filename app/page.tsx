@@ -40,7 +40,7 @@ export default function Home() {
         <section id="about">
           <About />
         </section>
-        <section id="skills">
+        <section id="skills" className="w-full h-auto p-2">
           <Skills />
         </section>
         <section id="proyects">{/* <ProjectsPage /> */}</section>
