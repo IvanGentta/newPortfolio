@@ -8,16 +8,18 @@ import { usePathname } from "next/navigation";
 export default function Nav() {
   const pathname = usePathname();
 
-  if (pathname.startsWith("/projectsPage/") && pathname !== "/projectsPage") {
-    return null;
-  }
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
-  return (
+
+  // Evitar renderizar el contenido si estamos en una página específica
+  const shouldRenderNav = !(
+    pathname.startsWith("/projectsPage/") && pathname !== "/projectsPage"
+  );
+
+  return shouldRenderNav ? (
     <>
       {/* Overlay oscuro */}
       {isMenuOpen && (
@@ -54,10 +56,10 @@ export default function Nav() {
             <div
               className={`absolute top-24 left-0 w-full bg-iviBackground border-2 border-iviSecondary shadow-md shadow-iviShadow rounded-b-2xl
               md:static md:translate-y-0 md:opacity-100 md:flex md:items-center md:space-x-4 md:border-none md:shadow-none 
-              transition-all duration-500 ease-in-out z-50 pointer-events-auto md:pointer-events-none${
+              transition-all duration-500 ease-in-out z-50 pointer-events-auto md:pointer-events-none ${
                 isMenuOpen
                   ? "translate-y-0 opacity-100 p-4"
-                  : "-translate-y-full opacity-0 "
+                  : "-translate-y-full opacity-0"
               }`}
             >
               {/* Cambiar idioma y tema */}
@@ -105,5 +107,5 @@ export default function Nav() {
         </div>
       </nav>
     </>
-  );
+  ) : null;
 }
