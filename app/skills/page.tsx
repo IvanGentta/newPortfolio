@@ -2,6 +2,7 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Skills() {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -62,9 +63,11 @@ export default function Skills() {
                 from-iviPrimaryDark via-iviBackground to-iviPrimaryDark border-4 border-black
                 rounded-lg shadow-lg h-60"
               >
-                <img
+                <Image
                   src={panel.img}
                   alt={panel.title}
+                  width={112}
+                  height={112}
                   className="w-28 h-28 object-contain mb-4"
                 />
                 <h2 className="text-2xl font-bold text-iviText">

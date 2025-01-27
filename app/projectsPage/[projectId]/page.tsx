@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const projectsData = [
@@ -84,9 +85,11 @@ export default function ProjectDetailsPage({
   return (
     <div className="p-8 bg-iviBackground min-h-screen w-full relative">
       <div className="absolute top-0 left-0 w-full h-full z-10">
-        <img
+        <Image
           src={project.img}
           alt={project.name}
+          width={1920}
+          height={1080}
           className="w-full h-auto brightness-50"
         />
         <h1 className="absolute z-20 top-10 left-5 text-white text-4xl font-bold decoration-iviSecondary underline">

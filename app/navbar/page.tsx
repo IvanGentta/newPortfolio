@@ -17,7 +17,6 @@ export default function Nav() {
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
-
   return (
     <>
       {/* Overlay oscuro */}
