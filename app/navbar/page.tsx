@@ -3,8 +3,15 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 export default function Nav() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/projectsPage/") && pathname !== "/projectsPage") {
+    return null;
+  }
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {

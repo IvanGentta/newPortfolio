@@ -18,16 +18,16 @@ export default function Skills() {
   });
 
   const panelsData = [
-    { title: "TailwindCSS", img: "/images/tailwind.png" },
-    { title: "Next", img: "/images/next.js.png" },
-    { title: "HTML", img: "/images/html.png" },
-    { title: "GitHub", img: "/images/github.png" },
-    { title: "GitLab", img: "/images/gitlab.png" },
-    { title: "Javascript", img: "/images/javascript.png" },
-    { title: "Typescript", img: "/images/typesripts.jpg" },
-    { title: "React", img: "/images/react.png" },
-    { title: "MongoDB", img: "/images/mongoDB.png" },
-    { title: "Node JS", img: "/images/node.png" },
+    { title: "TailwindCSS", img: "/images/skills/tailwind.png" },
+    { title: "Next", img: "/images/skills/Next.png" },
+    { title: "HTML", img: "/images/skills/html.png" },
+    { title: "GitHub", img: "/images/skills/github.png" },
+    { title: "GitLab", img: "/images/skills/gitlab.png" },
+    { title: "Javascript", img: "/images/skills/javascript.png" },
+    { title: "Typescript", img: "/images/skills/typesripts.jpg" },
+    { title: "React", img: "/images/skills/react.png" },
+    { title: "MongoDB", img: "/images/skills/mongoDB.png" },
+    { title: "Node JS", img: "/images/skills/node.png" },
   ];
 
   const handlePrev = () => instanceRef.current?.prev();
