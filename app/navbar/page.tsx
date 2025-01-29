@@ -4,8 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 import { usePathname } from "next/navigation";
+import { useLanguage } from "../LanguageContext";
+import { translations } from "../translations";
 
 export default function Nav() {
+  const { language, switchLanguage } = useLanguage();
+
   const pathname = usePathname();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,13 +28,13 @@ export default function Nav() {
       {/* Overlay oscuro */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity md:hidden"
+          className="fixed inset-0 bg-black bg-opacity-50 z-[150] transition-opacity md:hidden"
           onClick={() => setIsMenuOpen(false)}
         ></div>
       )}
 
       <nav
-        className="bg-iviBackground h-24 w-full p-3 fixed top-0 z-[100]
+        className="bg-iviBackground h-24 w-full p-3 fixed top-0 z-[200]
         border-b-2 border-iviSecondary shadow-md shadow-iviShadow"
       >
         <div className="flex justify-between w-full">
@@ -56,15 +60,29 @@ export default function Nav() {
             <div
               className={`absolute top-24 left-0 w-full bg-iviBackground border-2 border-iviSecondary shadow-md shadow-iviShadow rounded-b-2xl
               md:static md:translate-y-0 md:opacity-100 md:flex md:items-center md:space-x-4 md:border-none md:shadow-none 
-              transition-all duration-500 ease-in-out z-50 pointer-events-auto md:pointer-events-none ${
+              transition-all duration-500 ease-in-out z-[200] ${
                 isMenuOpen
                   ? "translate-y-0 opacity-100 p-4"
-                  : "-translate-y-full opacity-0"
+                  : "-translate-y-[-20] opacity-0 "
               }`}
             >
               {/* Cambiar idioma y tema */}
               <div className="flex items-center pb-4 md:pb-0">
-                <div>[change lang]</div>
+                <div>
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      switchLanguage(language === "en" ? "es" : "en");
+                    }}
+                    className={`px-2 py-1 mx-1 font-bold rounded-lg border-2 border-black ${
+                      language === "en"
+                        ? "bg-gradient-to-br from-transparent via-iviBackground to-iviPrimary"
+                        : "bg-gradient-to-br from-transparent via-iviBackground to-iviSecondary"
+                    }`}
+                  >
+                    {language === "en" ? "Español" : "English"}
+                  </button>
+                </div>
                 <div className="flex items-center">
                   [theme
                   <FaSun className="text-yellow-500" />
@@ -82,22 +100,22 @@ export default function Nav() {
                 >
                   <li className="hover:underline decoration-2 underline-offset-4 decoration-iviSecondary">
                     <Link href="#about" onClick={() => setIsMenuOpen(false)}>
-                      About me
+                      {translations[language].about}
                     </Link>
                   </li>
                   <li className="hover:underline decoration-2 underline-offset-4 decoration-iviSecondary">
                     <Link href="#skills" onClick={() => setIsMenuOpen(false)}>
-                      Skills
+                      {translations[language].skills}
                     </Link>
                   </li>
                   <li className="hover:underline decoration-2 underline-offset-4 decoration-iviSecondary">
                     <Link href="#proyects" onClick={() => setIsMenuOpen(false)}>
-                      Projects
+                      {translations[language].projects}
                     </Link>
                   </li>
                   <li className="hover:underline decoration-2 underline-offset-4 decoration-iviSecondary">
                     <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
-                      Contact
+                      {translations[language].contact}
                     </Link>
                   </li>
                 </ul>

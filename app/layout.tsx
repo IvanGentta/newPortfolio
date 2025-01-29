@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "./navbar/page";
+import { LanguageProvider } from "./LanguageContext";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <head></head>
       <body className={font.className}>
-        <Nav />
-        {children}
+        <LanguageProvider>
+          <Nav />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

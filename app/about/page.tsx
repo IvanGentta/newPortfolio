@@ -1,8 +1,11 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { translations } from "../translations";
+import { useLanguage } from "../LanguageContext";
 
 export default function About() {
+  const { language } = useLanguage();
   return (
     <div className="w-full mx-auto p-2 space-y-4 md:flex-row md:justify-around 2xl:px-48 flex flex-col items-center pb-10 relative">
       {/* Fondo con gradiente */}
@@ -12,14 +15,14 @@ export default function About() {
       ></div>
 
       <div className="md:w-2/5 md:h-auto relative z-10">
-        <h3 className="text-iviPrimary font-bold pt-5 pb-2">About Me</h3>
-        <h1 className="text-3xl md:text-4xl font-bold mb-5">Who am I?</h1>
+        <h3 className="text-iviPrimary font-bold pt-5 pb-2">
+          {translations[language].aboutMe}
+        </h3>
+        <h1 className="text-3xl md:text-4xl font-bold mb-5">
+          {translations[language].whoAmI}
+        </h1>
         <h2 className="text-lg md:text-2xl lg:text-3xl z-50">
-          I started studying on my own out of pure curiosity, and since then,
-          I&apos;ve been captivated by the world of programming. I love that
-          it&apos;s a constantly evolving field, which motivates me to keep
-          growing and developing as a professional. Currently, I&apos;m pursuing
-          a degree in Computer Programming at UNSAM. Take a look around!
+          {translations[language].aboutMeText}
         </h2>
       </div>
 

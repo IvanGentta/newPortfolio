@@ -4,15 +4,19 @@ import Contact from "./contact/page";
 import ProjectsPage from "./projectsPage/page";
 import Skills from "./skills/page";
 import { useTypeHook } from "./typeHook";
+import { useLanguage } from "./LanguageContext";
+import { translations } from "./translations";
 
 export default function Home() {
+  const { language } = useLanguage();
+
   const { text, showCursor } = useTypeHook(
     [
-      "Based on Argentina!!",
-      "Let's create something amazing together!",
-      "Yet another generic programmer phrase.",
-      "I love coding and keep on learning.",
-      "I know this effect is kinda overdone, but just look how cool it looks!",
+      `${translations[language].type1}`,
+      `${translations[language].type2}`,
+      `${translations[language].type3}`,
+      `${translations[language].type4}`,
+      `${translations[language].type1}`,
     ],
     120 // Velocidad de escritura
   );
@@ -27,12 +31,15 @@ export default function Home() {
           )}
         </p>
         <h1 className="text-[40px]">
-          Hi! My name is <span className="text-iviPrimary font-bold">Iván</span>
+          {translations[language].hi}{" "}
+          <span className="text-iviPrimary font-bold">Iván</span>
         </h1>
         <h1 className="text-[40px]">
-          Welcome to my
-          <span className="text-iviPrimary font-bold"> Web Developer</span>{" "}
-          portfolio
+          {translations[language].welcome}
+          <span className="text-iviPrimary font-bold">
+            {translations[language].developer}
+          </span>{" "}
+          {translations[language].portfolio}
         </h1>
       </div>
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-iviText via-transparent to-transparent opacity-50 rounded-3xl"></div>

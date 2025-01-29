@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { translations } from "../translations";
+import { useLanguage } from "../LanguageContext";
 
 interface ProjectItemProps {
   name: string;
@@ -13,6 +15,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   backgroundImg,
   info,
 }) => {
+  const { language } = useLanguage();
   return (
     <div
       className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-iviShadow text-iviText 
@@ -47,7 +50,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
             className="text-center py-3 px-6 rounded-lg bg-iviSecondary font-black text-lg 
           border-2 border-black hover:bg-iviSecondary/50 cursor-pointer"
           >
-            More info
+            {translations[language].infoButton}
           </p>
         </Link>
       </div>

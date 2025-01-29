@@ -4,6 +4,8 @@ import emailjs from "emailjs-com";
 import bgPattern from "/public/images/coolPattern.jpg";
 import avioncito from "/public/images/avioncito.jpg";
 import { MdClose } from "react-icons/md";
+import { translations } from "../translations";
+import { useLanguage } from "../LanguageContext";
 
 type FormData = {
   name: string;
@@ -27,6 +29,7 @@ type TouchedState = {
 };
 
 export default function Contact() {
+  const { language } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -150,7 +153,7 @@ export default function Contact() {
       }
     } catch (error) {
       console.error(error);
-      alert("Error al enviar el correo. Intenta nuevamente.");
+      alert(`${translations[language].sentError}`);
     }
   };
 
@@ -163,8 +166,12 @@ export default function Contact() {
     <div className="w-full h-auto flex flex-col items-center relative">
       <div className="relative w-full max-w-[1200px]">
         <div className="absolute left-0 top-0">
-          <h3 className="text-iviPrimary font-bold pt-5 pb-2">Contact</h3>
-          <h1 className="text-3xl md:text-4xl font-bold">Get in touch!</h1>
+          <h3 className="text-iviPrimary font-bold pt-5 pb-2">
+            {translations[language].contactTitle}
+          </h3>
+          <h1 className="text-3xl md:text-4xl font-bold">
+            {translations[language].getInTouch}
+          </h1>
         </div>
         <form
           onSubmit={handleSubmit}
@@ -188,7 +195,7 @@ export default function Contact() {
                 className={`border-2 rounded-lg h-10 p-2 sm:h-12 ${getBorderColor(
                   "name"
                 )}`}
-                placeholder="Name"
+                placeholder={translations[language].namePlaceholder}
                 required
               />
               <input
@@ -212,7 +219,7 @@ export default function Contact() {
                 className={`border-2 rounded-lg h-10 p-2 sm:h-12 ${getBorderColor(
                   "subject"
                 )}`}
-                placeholder="Subject"
+                placeholder={translations[language].subjectPlaceholder}
                 required
               />
             </div>
@@ -224,7 +231,7 @@ export default function Contact() {
               className={`flex-grow border-2 rounded-lg min-h-[200px] sm:h-full w-full max-w-96 lg:max-w-[450px] p-2 mt-2 sm:mt-0 resize-none ${getBorderColor(
                 "message"
               )}`}
-              placeholder="Message..."
+              placeholder={translations[language].messagePlaceholder}
               required
             ></textarea>
           </div>
@@ -233,7 +240,7 @@ export default function Contact() {
             className="w-50 bg-iviPrimary border-2 border-black text-iviTextDark font-bold text-xl py-2 px-4 mt-8 mb-2 rounded-xl
           hover:bg-[#2fa4f7] hover:text-iviText hover:border-black/80 transition ease-in"
           >
-            Send Message
+            {translations[language].sendButton}
           </button>
         </form>
 
@@ -258,9 +265,9 @@ export default function Contact() {
                 onClick={handleClose}
               />
               <h2 className="text-4xl font-semibold p-2">
-                Email sent,
+                {translations[language].sent}
                 <br />
-                thanks!
+                {translations[language].thanks}
               </h2>
             </div>
           </div>

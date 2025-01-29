@@ -1,67 +1,66 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-
-const projectsData = [
-  {
-    id: "weatherapp",
-    name: "Weather App",
-    img: "/images/imgWeatherProject.jpg",
-    repo: "https://github.com/IvanGentta/weather-app",
-    deploy: "https://weather-app-two-smoky.vercel.app/",
-    description:
-      "A weather app that gives you the temperature and the humidity among other info of any place you search. I pull the info from the OpenWeatherMap API and use Axios to make the API calls. I also use React-icons and Tailwind libraries. This web app is fully responsive.",
-    technologies: [
-      "React.js",
-      "Next.js",
-      "Tailwind CSS",
-      "Node.js",
-      "Axios API Calls",
-      "React-Icons",
-    ],
-  },
-  {
-    id: "google-search-clone",
-    name: "Google Search Clone",
-    img: "/images/imgGoogleProject.jpg",
-    repo: "https://github.com/IvanGentta/Google-Clon",
-    deploy: "https://google-clon-ten.vercel.app/",
-    description:
-      "In this project I use the Google API to make a custom search engine. I use React-icons and TailwindCSS libraries. I also use Pagination to manage the diferent pages of the search results. This web app is fully responsive.",
-    technologies: [
-      "React.js",
-      "Next.js",
-      "Tailwind CSS",
-      "Node.js",
-      "Firebase",
-    ],
-  },
-  {
-    id: "krooma-landing-page",
-    name: "Krooma Landing Page",
-    img: "/images/imgKroomaProject.jpg",
-    repo: "https://gitlab.com/IvanGentta/krooma-studio",
-    deploy: "https://krooma.com/",
-    description:
-      "My first real job for a creative agency, animated with the AOS library, some carrousels with Swiper and react-responsive-carrousel libraries, and fully functional contact form wich redirects you to the home page once you send it. Fully responsive. It was my first time working with a team, we use Figma for the design and Gitlab for the remotely work with branches.",
-    technologies: [
-      "React.js",
-      "Next.js",
-      "Tailwind CSS",
-      "Node.js",
-      "Figma",
-      "Gitlab",
-      "CPanel",
-    ],
-  },
-];
+import { translations } from "@/app/translations";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function ProjectDetailsPage({
   params,
 }: {
   params: { projectId: string };
 }) {
+  const { language } = useLanguage();
   const router = useRouter();
+  const projectsData = [
+    {
+      id: "weatherapp",
+      name: "Weather App",
+      img: "/images/imgWeatherProject.jpg",
+      repo: "https://github.com/IvanGentta/weather-app",
+      deploy: "https://weather-app-two-smoky.vercel.app/",
+      description: translations[language].weatherInfo,
+      technologies: [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Axios API Calls",
+        "React-Icons",
+      ],
+    },
+    {
+      id: "google-search-clone",
+      name: "Google Search Clone",
+      img: "/images/imgGoogleProject.jpg",
+      repo: "https://github.com/IvanGentta/Google-Clon",
+      deploy: "https://google-clon-ten.vercel.app/",
+      description: translations[language].googleInfo,
+      technologies: [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Firebase",
+      ],
+    },
+    {
+      id: "krooma-landing-page",
+      name: "Krooma Landing Page",
+      img: "/images/imgKroomaProject.jpg",
+      repo: "https://gitlab.com/IvanGentta/krooma-studio",
+      deploy: "https://krooma.com/",
+      description: translations[language].kroomaInfo,
+      technologies: [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Figma",
+        "Gitlab",
+        "CPanel",
+      ],
+    },
+  ];
 
   // Encuentra el proyecto basado en el projectId
   const project = projectsData.find((p) => p.id === params.projectId);
@@ -70,20 +69,20 @@ export default function ProjectDetailsPage({
     return (
       <div className="p-8 bg-iviBackground text-iviText min-h-screen">
         <h1 className="text-4xl font-bold mb-4 decoration-iviSecondary underline">
-          Project not found!
+          {translations[language].notFound}
         </h1>
         <button
           className="mt-4 px-4 py-2 bg-iviPrimary font-bold rounded-lg border-2 border-black hover:bg-iviPrimary/50"
           onClick={() => router.back()}
         >
-          Go Back
+          {translations[language].backButton}
         </button>
       </div>
     );
   }
 
   return (
-    <div className="p-8 bg-iviBackground min-h-screen w-full relative">
+    <div className="p-8 bg-iviBackground h-screen w-full md:overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-full z-10">
         <Image
           src={project.img}
@@ -99,12 +98,16 @@ export default function ProjectDetailsPage({
       <div className="absolute z-20 left-0 top-40 md:top-60 lg:top-96 bg-iviBackground w-full min-h-screen px-4 py-2">
         <div className="w-full h-auto mb-4 md:flex md:items-center md:justify-center gap-4 lg:gap-24 md:mt-2">
           <div className="w-full md:w-[700px] flex flex-col">
-            <h2 className="text-iviPrimary font-bold pb-2">Project overview</h2>
+            <h2 className="text-iviPrimary font-bold pb-2">
+              {translations[language].overview}
+            </h2>
             <p className="mb-4">{project.description}</p>
           </div>
 
           <div className="w-[200px] p-2 border-2 border-black rounded-lg shadow-xl shadow-iviShadow">
-            <h2 className="text-xl font-semibold">Technologies</h2>
+            <h2 className="text-xl font-semibold">
+              {translations[language].techs}
+            </h2>
             <ul className="list-disc ml-6 mb-2">
               {project.technologies.map((tech, index) => (
                 <li key={index}>{tech}</li>
@@ -134,7 +137,7 @@ export default function ProjectDetailsPage({
           className="mt-6 font-bold rounded-lg border-0 underline "
           onClick={() => router.back()}
         >
-          Back to Projects
+          {translations[language].backButton}
         </button>
       </div>
     </div>

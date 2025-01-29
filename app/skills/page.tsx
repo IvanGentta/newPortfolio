@@ -3,8 +3,11 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
+import { translations } from "../translations";
+import { useLanguage } from "../LanguageContext";
 
 export default function Skills() {
+  const { language } = useLanguage();
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slides: { perView: 1, spacing: 20 },
@@ -38,8 +41,12 @@ export default function Skills() {
     <div className="w-full h-auto pb-10 flex flex-col items-center">
       <div className="relative w-full max-w-[1200px]">
         <div className="absolute left-0">
-          <h3 className="text-iviPrimary font-bold pt-5 pb-2">Skills</h3>
-          <h1 className="text-3xl md:text-4xl font-bold">What I Know?</h1>
+          <h3 className="text-iviPrimary font-bold pt-5 pb-2">
+            {translations[language].skillsTitle}
+          </h3>
+          <h1 className="text-3xl md:text-4xl font-bold">
+            {translations[language].whatIKnow}
+          </h1>
         </div>
         <div className="relative mt-24">
           {/* Flechas */}
