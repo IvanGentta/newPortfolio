@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { translations } from "../translations";
-import { useLanguage } from "../LanguageContext";
+import { translations } from "@/app/translations";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function About() {
   const { language } = useLanguage();

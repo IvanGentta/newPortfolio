@@ -1,8 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { translations } from "../translations";
-import { useLanguage } from "../LanguageContext";
+import { translations } from "@/app/translations";
+import { useLanguage } from "@/app/LanguageContext";
 
 interface ProjectItemProps {
   name: string;

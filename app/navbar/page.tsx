@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaMoon, FaSun, FaBars, FaTimes } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-import { useLanguage } from "../LanguageContext";
-import { translations } from "../translations";
+import { useLanguage } from "@/app/LanguageContext";
+import { translations } from "@/app/translations";
 
 export default function Nav() {
   const { language, switchLanguage } = useLanguage();

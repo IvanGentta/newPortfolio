@@ -4,8 +4,8 @@ import emailjs from "emailjs-com";
 import bgPattern from "/public/images/coolPattern.jpg";
 import avioncito from "/public/images/avioncito.jpg";
 import { MdClose } from "react-icons/md";
-import { translations } from "../translations";
-import { useLanguage } from "../LanguageContext";
+import { translations } from "@/app/translations";
+import { useLanguage } from "@/app/LanguageContext";
 
 type FormData = {
   name: string;

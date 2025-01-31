@@ -3,8 +3,8 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Image from "next/image";
-import { translations } from "../translations";
-import { useLanguage } from "../LanguageContext";
+import { translations } from "@/app/translations";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function Skills() {
   const { language } = useLanguage();

@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
-import ProjectItem from "./projetItem";
-import { translations } from "../translations";
-import { useLanguage } from "../LanguageContext";
+import ProjectItem from "./projectItem";
+import { translations } from "@/app/translations";
+import { useLanguage } from "@/app/LanguageContext";
 
 export default function ProjectsPage() {
   const { language } = useLanguage();
