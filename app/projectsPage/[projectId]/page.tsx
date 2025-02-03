@@ -82,7 +82,7 @@ export default function ProjectDetailsPage({
   }
 
   return (
-    <div className="p-8 bg-iviBackground h-screen w-full md:overflow-hidden relative">
+    <div className="p-8 bg-iviBackground text-iviText h-screen w-full md:overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-full z-10">
         <Image
           src={project.img}
@@ -104,7 +104,7 @@ export default function ProjectDetailsPage({
             <p className="mb-4">{project.description}</p>
           </div>
 
-          <div className="w-[200px] p-2 border-2 border-black rounded-lg shadow-xl shadow-iviShadow">
+          <div className="w-[200px] p-2 border-2 border-iviSecondary rounded-lg shadow-xl shadow-iviShadow">
             <h2 className="text-xl font-semibold">
               {translations[language].techs}
             </h2>
@@ -120,7 +120,7 @@ export default function ProjectDetailsPage({
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 bg-gradient-to-br from-transparent via-iviBackground to-iviPrimary font-bold rounded-lg border-2 border-black"
+            className="px-5 py-2 bg-gradient-to-br from-transparent via-iviBackground to-iviPrimary font-bold rounded-lg border-2 border-black "
           >
             Code
           </a>
@@ -128,7 +128,7 @@ export default function ProjectDetailsPage({
             href={project.deploy}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 bg-gradient-to-br from-transparent via-iviBackground to-iviSecondary font-bold rounded-lg border-2 border-black"
+            className="px-5 py-2 bg-gradient-to-br from-transparent via-iviBackground to-iviSecondary font-bold rounded-lg border-2 border-black "
           >
             Demo
           </a>

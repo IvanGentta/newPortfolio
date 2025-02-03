@@ -22,12 +22,12 @@ export default function Home() {
   );
 
   return (
-    <main className="w-full h-auto bg-iviBackground">
+    <main className="w-full h-auto bg-iviBackground text-iviText">
       <div className="min-h-screen flex flex-col items-center justify-center text-center mx-1">
         <p className="flex items-center h-7 relative font-mono">
           {text}
           {showCursor && (
-            <span className="w-[2px] h-6 bg-black animate-blink absolute top-0 left-full" />
+            <span className="w-[2px] h-6 bg-iviText animate-blink absolute top-0 left-full" />
           )}
         </p>
         <h1 className="text-[40px]">

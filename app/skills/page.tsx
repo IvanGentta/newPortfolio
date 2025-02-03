@@ -52,13 +52,13 @@ export default function Skills() {
           {/* Flechas */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 transition hover:scale-110 hover:text-iviText"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 transition hover:scale-110"
           >
             <FaChevronLeft size={40} />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 transition hover:scale-110 hover:text-iviText"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 transition hover:scale-110"
           >
             <FaChevronRight size={40} />
           </button>
@@ -67,8 +67,8 @@ export default function Skills() {
               <div
                 key={index}
                 className="keen-slider__slide flex flex-col items-center justify-center bg-gradient-to-br
-                from-iviPrimaryDark via-iviBackground to-iviPrimaryDark border-4 border-black
-                rounded-lg shadow-lg h-60"
+                from-iviPrimary via-iviBackground to-iviPrimary border-4 border-black dark:border-slate-300
+                rounded-lg h-60"
               >
                 <Image
                   src={panel.img}
@@ -77,9 +77,7 @@ export default function Skills() {
                   height={112}
                   className="w-28 h-28 object-contain mb-4"
                 />
-                <h2 className="text-2xl font-bold text-iviText">
-                  {panel.title}
-                </h2>
+                <h2 className="text-2xl font-bold">{panel.title}</h2>
               </div>
             ))}
           </div>

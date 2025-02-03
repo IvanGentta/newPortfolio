@@ -5,3 +5,15 @@
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --iviSecondary: #ffb74d;
+  --iviBackground: #f5f5f5;
+  --iviText: #333333;
+}
+
+.dark {
+  --iviSecondary: #8f4600;
+  --iviBackground: #1d1d1d;
+  --iviText: #e0e0e0;
+}

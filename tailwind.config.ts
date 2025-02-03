@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,21 +11,11 @@ const config: Config = {
     extend: {
       colors: {
         iviPrimary: "#1E88E5",
-        iviSecondary: "#FFB74D",
-        iviBackground: "#F5F5F5",
-        iviText: "#333333",
+        iviSecondary: "var(--iviSecondary)",
+        iviBackground: "var(--iviBackground)",
+        iviText: "var(--iviText)",
         iviExtra: "#E0E0E0",
-        iviExtra2: "#FFFFFF",
         iviShadow: "#64748B",
-
-        //oscuro
-        iviPrimaryDark: "#64B5F6",
-        iviSecondaryDark: "#FFA726",
-        iviBackgroundDark: "#121212",
-        iviTextDark: "#E0E0E0",
-        iviExtraDark: "#424242",
-        iviExtra2Dark: "#1E88E5",
-        iviShadowDark: "",
       },
       keyframes: {
         blink: {

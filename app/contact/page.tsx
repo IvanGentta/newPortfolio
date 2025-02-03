@@ -177,7 +177,7 @@ export default function Contact() {
           onSubmit={handleSubmit}
           method="post"
           className="flex flex-col items-center justify-center py-4 border-4 border-iviSecondary rounded-3xl
-        w-full h-auto max-w-[1200px] sm:h-auto bg-iviExtra shadow-lg mt-24"
+        w-full h-auto max-w-[1200px] sm:h-auto shadow-lg shadow-iviShadow mt-24"
           style={{
             backgroundImage: `url(${bgPattern.src})`,
             backgroundSize: "cover",

@@ -19,9 +19,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   const { language } = useLanguage();
   return (
     <div
-      className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-iviShadow text-iviText 
+      className="relative flex items-center justify-center h-auto w-full shadow-md shadow-iviShadow
     rounded-xl p-4 group hover:bg-gradient-to-br from-iviPrimary via-iviBackground to-iviBackground  md:m-0
-    border-2 border-black z-10"
+    border-2 border-black z-10 dark:border-slate-300"
     >
       {/* Fondo degradado */}
       <div
@@ -43,13 +43,13 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         <h2 className="text-2xl tracking-widest text-center font-black">
           {name}
         </h2>
-        <p className="text-md text-center  font-bold">{info}</p>
+        <p className="text-md text-center font-bold">{info}</p>
 
         {/* Enlace dinámico */}
         <Link href={`/projectsPage/${name.toLowerCase().replace(/\s+/g, "-")}`}>
           <p
             className="text-center py-3 px-6 rounded-lg bg-iviSecondary font-black text-lg 
-          border-2 border-black hover:bg-iviSecondary/50 cursor-pointer"
+          border-2 border-black cursor-pointer dark:border-slate-300"
           >
             {translations[language].infoButton}
           </p>
