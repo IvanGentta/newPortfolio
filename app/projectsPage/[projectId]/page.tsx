@@ -60,6 +60,23 @@ export default function ProjectDetailsPage({
         "CPanel",
       ],
     },
+    {
+      id: "chat-app",
+      name: "Chat App",
+      img: "/images/chatAppImage.jpg",
+      repo: "https://github.com/IvanGentta/chat-challenge",
+      deploy: "https://chat-challenge-one.vercel.app/",
+      description: translations[language].chatAppInfo,
+      technologies: [
+        "React.js",
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Firebase",
+        "Firestore",
+        "Redux",
+      ],
+    },
   ];
 
   // Encuentra el proyecto basado en el projectId

@@ -48,6 +48,7 @@ export const translations: {
       "Web app to know what is the weather like in any place in the world",
     googleDesc: "A Google clon where you can actually search what you want",
     kroomaDesc: "My first real job!",
+    chatappDesc: "Real time chat app with authentication",
 
     //projectItem
     infoButton: "More info",
@@ -63,6 +64,8 @@ export const translations: {
       "In this project I use the Google API to make a custom search engine. I use React-icons and TailwindCSS libraries. I also use Pagination to manage the diferent pages of the search results. This web app is fully responsive.",
     kroomaInfo:
       "My first real job for a creative agency, animated with the AOS library, some carrousels with Swiper and react-responsive-carrousel libraries, and fully functional contact form wich redirects you to the home page once you send it. Fully responsive. It was my first time working with a team, we use Figma for the design and Gitlab for the remotely work with branches.",
+    chatAppInfo:
+      "Chat app full responsive, I use Firebase auth to manage the login, sign up and password reset, also I use Firestore y redux to make it a real time chat.",
   },
   es: {
     //nav
@@ -110,6 +113,7 @@ export const translations: {
       "App del clima que te da la temperatura y la humedad entre otros datos de cualquier lugar que busques",
     googleDesc: "Clon de Google donde podes buscar lo que quieras",
     kroomaDesc: "Mi primer trabajo real!",
+    chatappDesc: "Chat de tiempo real con autenticación",
 
     //projectItem
     infoButton: "Más info",
@@ -125,5 +129,7 @@ export const translations: {
       "En este proyecto uso la API de Google para hacer un motor de búsqueda personalizado. Uso las librerías React-icons y TailwindCSS. También uso Pagination para manejar las diferentes páginas de los resultados de la búsqueda. La app es totalmente responsiva.",
     kroomaInfo:
       "Mi primer trabajo real para una agencia creativa, animado con la librería AOS, algunos carrousels con las librerías Swiper y react-responsive-carrousel, y un formulario de contacto totalmente funcional que te redirige a la página principal una vez que lo envías. Totalmente responsiva. Fue mi primera vez trabajando con un equipo, usamos Figma para el diseño y Gitlab para el trabajo remoto con ramas.",
+    chatAppInfo:
+      "Chat app totalmente responsiva, uso Firebase para manejar el resgitro, logueo y para restablecer la contraseña del usuario, también uso Firestore y Redux para que sea mensajería en tiempo real.",
   },
 };

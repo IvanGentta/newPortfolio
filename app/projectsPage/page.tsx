@@ -22,6 +22,11 @@ export default function ProjectsPage() {
       backgroundImg: "/images/imgKroomaProject.jpg",
       info: translations[language].kroomaDesc,
     },
+    {
+      name: "Chat App",
+      backgroundImg: "/images/imgChatAppProject.jpg",
+      info: translations[language].chatappDesc,
+    },
   ];
 
   return (
